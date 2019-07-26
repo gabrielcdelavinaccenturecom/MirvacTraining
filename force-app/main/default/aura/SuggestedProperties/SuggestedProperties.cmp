@@ -1,0 +1,35 @@
+<aura:component controller="SuggestedPropertiesController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="unit" type="Unit__c"/>
+    <div class="demo-only slds-grid" style="height: 1000px; max-width: 1000px; background: rgb(244, 246, 249); padding: 1rem;">
+        <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap"> 
+            <div>
+                <div class="slds-page-header">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                         
+                              
+   						 <lightning:icon iconName="standard:opportunity" size="large" alternativeText="Indicates approval"/>
+							
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Suggested Properties">Suggested Properties</h1>
+                            <p class="slds-text-body_small slds-line-height_reset">Suggest Properties that Fits Your Needs</p>
+                        </div>
+                
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div>
+                <c:SearchBarComponent />
+            </div>
+            <div class="slds-scrollable">
+                <c:UnitListItem recordId="{!v.recordId}"/>
+            </div>
+
+        </div>
+    </div>
+</aura:component>

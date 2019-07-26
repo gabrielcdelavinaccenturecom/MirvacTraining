@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Component Event Sample">
+    <aura:attribute name="message" type="String" />
+</aura:event>

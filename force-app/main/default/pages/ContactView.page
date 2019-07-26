@@ -1,0 +1,11 @@
+<apex:page STandardController="Contact">
+<apex:outputLabel >
+{! Contact.Firstname}
+</apex:outputLabel>
+<apex:outputLabel >
+{! Contact.LastName}
+<apex:outputLabel >
+{! Contact.Owner.Email}
+</apex:outputLabel>
+</apex:outputLabel>
+</apex:page>

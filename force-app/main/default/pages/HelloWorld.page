@@ -1,0 +1,5 @@
+<apex:page >
+    <h1>Congratulations</h1>
+    This is your new Apex Page: HelloWorld
+    <apex:outputText > label ="Current User" value = "{!$User.FirstName}" </apex:outputText>
+</apex:page>

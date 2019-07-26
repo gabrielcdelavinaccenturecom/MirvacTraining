@@ -1,0 +1,11 @@
+<aura:component controller="HelloController">
+    <aura:attribute type="String" name="firstName" required="true" description="docu"/>
+    <aura:attribute type="Account" name="accountRec" />
+    <aura:attribute type="String" name="recordId"/>
+    
+    <div class ="hello">
+        Hello {!v.accountRec.Name}!
+    </div>
+    
+    <button onclick="{!c.getAccountRec}">Click Me!</button>
+</aura:component>

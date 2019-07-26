@@ -1,0 +1,5 @@
+<aura:component >
+    <c:helloHeading />
+    <c:campingList />
+	<p>Hello Lightning!</p>
+</aura:component>

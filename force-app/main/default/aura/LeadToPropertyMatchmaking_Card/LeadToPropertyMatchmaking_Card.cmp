@@ -1,0 +1,75 @@
+<aura:component controller="LeadToPropertyMatchmakingController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="unit" type="Unit__c"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="isClicked" type="Boolean" default="true"/>
+    <aura:attribute name="toggleDropdown" type="String" default="slds-is-close"/>
+    
+    <div class = "slds"> 
+        <li class="slds-tile slds-hint-parent">	
+            <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                <p class="slds-tile__title slds-truncate">
+                    <a href="javascript:void(0)" onclick="{!c.viewRecord}"> Unit Number: {!v.unit.Name}</a>
+                    <ui:inputText class="unitIdVar" value="{!v.unit.Id}" aura:id="unitVar" />
+                </p>
+                <!--BUTTON STARTS HERE/-->
+                <div>
+                    <div class="slds custom-dropdown">
+                        <div class="{! 'slds-dropdown-trigger slds-dropdown-trigger--click ' + v.toggleDropdown}" aria-expanded="true">
+                            <button class="slds-button slds-button--icon-border-filled" style="width:1.25rem; height:1.25rem" aria-haspopup="true" onclick="{!c.toggleDropDown}">
+                                <lightning:icon iconName="utility:down"/>
+                               
+                            </button>
+                            <div class="slds-dropdown slds-dropdown--right slds-nubbin--top-right">
+                                <ul class="dropdown__list" role="menu">
+                                    <li class="slds-dropdown__item">
+                                        <a href="javascript:void(0)" role="menuitem">
+                                            <p class="slds-truncate" style="font-size:0.75rem; color: rgb(0, 112, 210);" onclick="{!c.updateRecord}">Select Property</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--BUTTON ENDS HERE/-->
+            </div>
+            <div class="slds-tile__detail">
+                <dl class="slds-dl--horizontal slds-text-body--small">
+                    <dt class="slds-dl--horizontal__label">
+                        <p class="slds-truncate">Price:</p>
+                    </dt>
+                    <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">
+                            <ui:outputCurrency aura:id="curr" value="{!v.unit.Price__c}"/>
+                        </p>
+                    </dd>
+                    <dt class="slds-dl--horizontal__label">
+                        <p class="slds-truncate">Property Type:</p>
+                    </dt>
+                    <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{!v.unit.PropertyType__c}</p>
+                    </dd>
+                    <dt class="slds-dl--horizontal__label">
+                        <p class="slds-truncate">No. of Bedrooms:</p>
+                    </dt>
+                    <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{!v.unit.Bedroom__c}</p>
+                    </dd>
+                    <dt class="slds-dl--horizontal__label">
+                        <p class="slds-truncate">No. of Bathrooms:</p>
+                    </dt>
+                    <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{!v.unit.Bathroom__c}</p>
+                    </dd>
+                    <dt class="slds-dl--horizontal__label">
+                        <p class="slds-truncate">Area (sqm):</p>
+                    </dt>
+                    <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{!v.unit.Area__c}</p>
+                    </dd>
+                </dl>
+            </div>
+        </li>    
+    </div>
+</aura:component>

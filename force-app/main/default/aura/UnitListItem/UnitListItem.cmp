@@ -1,0 +1,20 @@
+<aura:component controller="SuggestedPropertiesController" implements="force:hasRecordId">
+	<aura:attribute name="unit" type="Unit__c[]"/>
+	<aura:attribute type="String" name="recordId"/>
+	<aura:handler event="c:SearchBar" action="{!c.handleApplicationEvent}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    <div style="display:inline-block; padding-left: 30px">
+        <aura:iteration items="{!v.unit}" var="unit">
+            &nbsp;
+            <c:EachUnit eachUnit="{!unit}"/>
+            &nbsp;
+            <!--  <ui:button label="Packed!"
+               press="{!c.packItem}"/> -->
+        </aura:iteration>
+    </div>
+    <button class="slds-button slds-button_brand" onclick = "{!c.doInit}">Refresh</button>
+    
+</aura:component>

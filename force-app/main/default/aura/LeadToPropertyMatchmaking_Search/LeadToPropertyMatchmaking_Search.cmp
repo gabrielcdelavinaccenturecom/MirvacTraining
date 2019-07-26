@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute name="unitList" type="Unit__c[]" />
+    <aura:registerEvent name="searchUnit" type="c:LeadToPropertyMatchmakingEvent"/>
+    
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="text-input-01">Search</label>
+        <div class="slds-form-element__control">
+            <input id="text-input-01" class="slds-input" type="text" placeholder="Search units" onkeyup = "{! c.searchUnits}"/>
+        </div>
+    </div>
+</aura:component>

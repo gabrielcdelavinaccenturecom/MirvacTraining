@@ -1,0 +1,52 @@
+<aura:component controller="LeadToPropertyMatchmakingController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="units" type="Unit__c[]"/>
+    <aura:attribute name="displayedUnitList" type="Unit__c[]"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="hasMatchingUnit" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="force:refreshView" action="{!c.onInit}" />  
+    
+    <ltng:require styles="/resource/SLDS090/assets/styles/salesforce-lightning-design-system-ltng.css"/>
+    
+    <div class = "slds">
+        <div class="slds-col slds-p-left--large slds-size--12-of-12" style="padding-left: 0rem">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid" role="banner">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                        <div class="slds-media__figure" style="width:1.5rem;height:1.5rem">
+                            <lightning:icon iconName="standard:home" size="medium" />
+                           
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading--small slds-truncate" style="font-size:1.125rem">Suggested Properties</h2>
+                        </div>
+                        <div class="slds-text-heading--label slds-text-align--right slds-m-top--small" style="font-size:.7rem">
+                            <button class="slds-button slds-button--neutral" style="padding-left:0.5rem; padding-right:0.5rem;" onclick="{!c.refresh}">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-card__body">
+                    <aura:if isTrue="{!v.hasMatchingUnit}">
+                        <div>
+                            <c:LeadToPropertyMatchmaking_Search unitList="{! v.units}" searchUnit="{! c.applySearch}"/>
+                        </div>
+                        <br/>
+                        <div class="slds-scrollable--y" style="overflow:auto; height:250px">
+                            <ul>
+                                <aura:iteration var="unitforIteration" items="{!v.displayedUnitList}">
+                                    <c:LeadToPropertyMatchmaking_Card unit="{!unitforIteration}" recordId="{!v.recordId}"/>
+                                </aura:iteration> 
+                            </ul>
+                        </div>
+                        <aura:set attribute="else">
+                            <div class='contentPanel' layout="block" style="overflow:auto; text-align:center">
+                                <h2 class="slds-text-heading--small slds-truncate" style="font-size:1rem">No matching property</h2>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+    </div> 
+</aura:component>

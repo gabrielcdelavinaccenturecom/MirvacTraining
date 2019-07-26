@@ -1,0 +1,50 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+<aura:attribute name="isOpen" type="Boolean" default="true"/>
+<aura:if isTrue="{!v.isOpen}">
+<div class="demo-only" style="height: 640px;">
+  <section id="modal1" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick = "{!c.back}" title="Close">
+          <lightning:icon iconName="utility:close" size="small" alternativeText="Close"/>
+            <span class="slds-assistive-text">Close</span>
+        </button>
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Account</h2>
+      </header>
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <fieldset class="slds-form-element">
+  <legend class="slds-form-element__legend slds-form-element__label">Select Record Type</legend>
+  <div class="slds-form-element__control">
+   
+      <div class="slds-align_absolute-center">
+      <span class="slds-radio" >
+      <input type="radio" id="radio1" name="options" checked="true"/>
+      <label class="slds-radio__label" for="radio1">
+        <span class="slds-radio_faux"></span>
+        <span class="slds-form-element__label ">Record Type 1</span>
+      </label>
+    </span>
+      </div>
+      
+      <div class="slds-align_absolute-center">
+    <span class="slds-radio">
+      <input type="radio" id="radio2" name="options"/>
+      <label class="slds-radio__label" for="radio2">
+        <span class="slds-radio_faux"></span>
+        <span class="slds-form-element__label">Record Type 2</span>
+      </label>
+    </span>
+      </div>
+  </div>
+</fieldset>
+      </div>
+      <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick ="{!c.back}">Cancel</button>
+        <button class="slds-button slds-button_brand" onclick = "{!c.Next}">Next</button>
+      </footer>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</div>
+</aura:if>
+</aura:component>

@@ -1,0 +1,3 @@
+<aura:component implements="force:appHostable,flexipage:AvailableForAllPageTypes,force:lightningQuickAction,force:hasRecordId">
+    <c:HelloLightningChild firstName="Gab" recordId="{!v.recordId}"/>
+</aura:component>

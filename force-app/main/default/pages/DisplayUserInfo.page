@@ -1,0 +1,5 @@
+<apex:page >
+<apex:outputLabel >
+{! $User.Firstname}
+</apex:outputLabel> 
+</apex:page>

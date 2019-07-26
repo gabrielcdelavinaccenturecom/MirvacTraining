@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller = "AddressAutoCompleteController">
+    <aura:attribute name="data" type="Object[]"/>
+    <aura:attribute name="searchTerm" type="string"/>
+    <lightning:input name="search" Label = "Search Address" value = "{!v.searchTerm}" onkeyup="{! c.suggestedAddress}"/>
+    <div>
+        <ul class="city_predictions" style = "border: 1px solid #ccc;" >
+            <aura:iteration items="{!v.data}" var="prediction">
+                <li class="slds-listbox__item" style="padding: 4px 15px;">
+                    <a onclick="{!c.getCityDetails}" data-placeid="{!prediction.place_id}">{!prediction.label}</a>
+                </li>
+            </aura:iteration>
+        </ul> 
+    </div>
+</aura:component>

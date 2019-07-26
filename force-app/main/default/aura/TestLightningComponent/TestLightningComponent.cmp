@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute type="String" name="myString"/>
+    <aura:attribute type="String" name="myString2"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    {!v.myString}
+    {!v.myString2}
+    
+    <lightning:button onclick="{!c.changeMyString}" label="Click Me!"/>
+</aura:component>
